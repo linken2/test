@@ -1,0 +1,698 @@
+/*浏览器对一些元素解释的不一致，这里做样式清除，保证元素在各个浏览器都一致样式*/
+*{
+	padding: 0px;
+	margin: 0px;
+}
+a{
+	text-decoration:none;
+	color: #3377aa;/*取自PS*/
+}
+img,input{
+	border:none;
+	border:1px solid none;/*针对IE 6,IE6还会有边框线*/
+}
+
+a:hover{
+	background: none;
+	color: red;
+}
+/*头部*/
+#hd_head{
+	width: 950px;/*PS测量得出,整体网页也以950为宽度*/
+    height: 90px;
+    margin:0 auto;/*margin中第二参数表示对其方式，auto代表居中*/
+    position: relative;
+}
+#hd_head .head_logo{/*不加父级也能定位，那为何还要加？调试开发很清晰*/
+	display: block; /*a元素是行内元素，设置为块级元素*/
+	width: 154px;
+	height: 30px;
+	background:url(../images/logo.gif);/*李静问题很重要*/
+	position: absolute;
+	top: 31px;
+	left: 0px;
+}
+#hd_head .head_search{
+ width: 253px;
+  height: 31px;
+  border:1px solid #c3c3c3;
+  position: absolute;
+  top: 33px;
+  left: 184px;
+  color: #e4e4e4;
+  padding-left:7px; /*内部的文字与该盒子有一个距离，通过盒子的内边距实现*/
+  /*注意这里的padding会在容器基本宽度上扩充出7px，所以总体盒子宽要减去7px*/
+  line-height: 30px;/*IE6下文字位置有问题*/
+}
+#hd_head #search_icon{
+    width: 18px;
+    height: 31px;
+	background:url(../images/search.gif)0 7px no-repeat;
+	position: absolute;
+	border-radius:0 4px 4px 0;/*圆角属性从左上角开始*/
+	background-color: #FFF;
+	top: 34px;
+	left:426px;}
+#hd_head ul{
+	width: 463px;
+	height: 21px;
+	position: absolute;
+	right: 0px;
+	top: 36px;
+	list-style: none;
+}	
+#hd_head ul li{
+	float: left;/*将竖直排列的Li标签浮动后就能水平排列*/
+	margin-right:15px; 
+}
+#hd_head ul li a{
+	width: 42px;
+	height: 20px;
+    display: block;/*a属于行内元素,没有内容时候设定的宽高不生效，它随内容调整宽高；但block能一开始就生效初始大小宽高*/
+}
+#hd_head .head_read{
+  background: url(../images/group.gif) 0px 0px no-repeat;/*精灵技术*/
+}
+#hd_head  .head_movie{
+ background: url(../images/group.gif) -60px 0px no-repeat;
+}
+#hd_head  .head_music{
+background: url(../images/group.gif) -120px 0px no-repeat;
+}
+#hd_head  .head_group{
+background: url(../images/group.gif) -180px 0px no-repeat;
+}
+#hd_head  .head_city{
+background: url(../images/group.gif) -241px 0px no-repeat;
+}
+#hd_head  .head_FM{
+background: url(../images/group.gif) -300px 0px no-repeat;
+}
+#hd_head  .head_time{
+background: url(../images/group.gif) -360px 0px no-repeat;
+}
+#hd_head  .head_hourse{
+background: url(../images/group.gif) -421px 0px no-repeat;
+}
+/*头部结束*/
+
+
+
+/*背景区域*/
+#hd_reg_backgroud{
+	width: 100%;
+	height: 180px;
+	background:url(../images/bg_01.png) 150px 0px no-repeat #EDF4ED;
+	position: relative;
+}
+/*下载区域*/
+#hd_reg_backgroud #hd_down{
+	position: absolute;
+	height: 180px;
+	width: auto;
+	left: 0px;/*这里将图片设定为铺满背景，后面就需要对北京显示位置定位；也可以这里进行定位，后面精灵技术设定为0也是同样效果*/
+	right:0px;
+	background: url(../images/bg_02.png) 212px -150px no-repeat;/*定义了宽高后，通过精灵技术将图片Y纵向部分显示特定区域*/
+}
+
+#hd_app{
+	position: absolute;
+	left: 626px;
+    top: 35px;/*相对于父元素的定位，#hd_reg_backgroud宽度100%，所以left626,相对高度从父元素最上沿开始计算*/
+    width: 157px;
+    height: 106px;
+}
+#app_title{
+	font-size: 30px;
+	font-family: "硬笔行书陈";
+}
+@font-face{
+	font-family: "硬笔行书陈";
+	src:local("华文行楷"),url(http://www.font6.com/Font/softdown.asp?softid=15401);
+	font-weight: 28px;
+}
+#app_title span{
+	padding-left: 13px;	
+}
+#hd_app #app_slogan{
+	width: 98px;
+	height: 14px;
+	font: 18px '方正舒体';
+	font-weight: 350;
+}
+#app_down{
+	display: inline-block;/*block才能让设定的宽高生效*/
+	border-radius: 4px;
+	width: 113px;
+	height: 29px;
+	background:#00B51D;
+	color: #fff;
+	text-align: center;
+    position: absolute;
+    top: 72px;
+    left: 1px;
+    line-height: 29px;/*行高等于容器高度可以实现垂直居中*/
+}
+#app_qr #fir_app_qr{/*56*56二维码变为30*30大小*/
+	width: 30px;
+	height: 30px;
+	background-repeat: #fff;/*白色背景加上内边距营造出相框边框效果*/
+	display: inline-block;
+	border-radius: 4px;
+	position: absolute;
+	left: 115px;
+	top: 72px;
+}
+#sec_app_qr{
+	widows: 160px;
+	height: 160px;	
+}
+#sec_app{
+	display: none;
+	padding: 20px;
+	background:#fff;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+	font-size: 16px;
+    white-space: nowrap;/*文字不换行*/
+    font-family:'微软雅黑';
+    font-weight: 500px;
+}
+
+/*下载区域结束*/
+/*注册区域*/
+#hd_reg_backgroud #hd_reg{
+	width: 270px;
+	height: 134px;
+    position: absolute;
+    /*right: 204px;/*根据右侧定位，一般情况下缩放后浏览器窗口显示左上角开始的视距，根据右侧定位的初始时候会根据浏览器右侧窗口定位*/
+    left:883px;
+    top: 26px;
+}
+
+#user,#pwd{
+	border: 0;
+	width: 253px;/*应为261的宽度，由于padding造成扩大，这里减去后变为253*/
+	border-radius: 4px;
+	padding:0 8px;/*左右内边距8px使得内部文字与左右边框有距离不至于紧挨着左边框，运用padding会造成原来容器增大padding值，注意减去*/
+	height: 30px;
+	line-height: 30px;
+	margin-bottom:7px;
+	background:#CCE8CF;
+}
+
+#reg_login{
+	display: inline-block;
+	width:126px;
+	height:32px;
+	border-radius: 4px;
+	line-height: 32px;
+	text-align: center;
+	background:#30A080;
+	color:#fff;
+}
+#reg_login:hover{
+	background: #2A8C70;
+	}
+#reg_join{
+	font-size: 14px;
+	text-align: center;
+  display: inline-block;
+  width: 134px;
+  height: 30px;
+  line-height: 30px;
+  color: #30A080;
+  background:#EDF4ED;
+  border: 1px solid #2A8C70;
+  border-radius: 4px;
+  font-weight:600
+}
+#reg_join:hover{
+	color:#2A8C70;
+}
+#reg_remeber{
+	position: absolute;
+	top: 116px;
+	left:0px;
+	height: 16px;
+}
+#reg_remeber+span{
+	position: absolute;
+	top: 115px;
+	left:16px;
+	font-size: 14px;
+}
+#hd_reg ul{
+	list-style: none;
+	width: 68px;
+	height: 14px;
+	position: absolute;
+	left: 200px;
+	top: 115px;
+}
+#hd_reg ul li{
+    float: left;
+    margin-right: 4px;
+}
+#hd_reg ul li a{
+	width: 14px;
+	height: 14px;
+	display: block;
+	text-decoration: none;
+}
+#hd_reg ul li a:hover{
+	background: none;
+}
+
+/*注册区域结束*/
+ /*背景区域结束*/
+
+#message{
+	width: 950px;
+	height: 90px;
+	margin: 0 auto;
+	margin-top: 36px;
+	/*position: absolute;/*若使用绝对定位，margin:0 auto将失效*/
+	/*top: 304px;
+	left: 200px;*/
+	position: relative;
+}
+
+#message a:hover{
+	text-decoration: none;
+	background:none;
+}
+#message span{
+ width: 35px;
+ height: 20px;
+ background-color: rgba(0,0,0,0.2);
+ color: #fff;
+ font-weight: 600;
+ position: absolute;
+ right: 0px;
+ bottom:0px;
+}
+/*内容区域*/
+/*自动注释快捷键Ctrl + / */
+#hot_content{
+	width: 950px;
+	height: 547px;
+	margin: 0 auto;
+	margin-top: 44px;
+	position: relative;
+}
+
+/*线上活动、正在热映等统一样式多次出现，这里统一设定*/
+h2.title{
+	display: inline-block;
+	color: #007722;
+	font: 15px Arial, Helvetica, sans-serif;
+	line-height: 150%;
+	font-weight: 400;
+}
+h2.title a{
+	color: #047FCB;
+	font-size: 13px;
+}
+#content_left{
+	width: 351px;
+	height: 448px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	font-size: 13px;
+}
+#content_left ul{
+	margin-top: 40px;
+	list-style: none;
+}
+#content_left ul li{
+	float: left;
+	width: 172px;
+	height: 219px;
+	margin: 0px 0px 0px 2px;
+}
+#content_left img{
+	width: 168px;
+	height: 168px;
+}
+#content_left a[id=a_title]:hover{
+	color: #2A8C70;
+	/*background:#9BD7C5;*/
+	/*border-radius: 4px;*/
+	/*border: 3px solid #9BD7C5;*/
+	text-decoration:underline;
+}
+
+#content_left span{
+	color: #999;
+}
+#content_center{
+	width: 270px;
+	height:506px;
+	position: absolute;
+	left: 386px;
+	top: 0px;
+}
+#content_center ul{
+	margin-top: 40px;
+	list-style: none;
+	width: 272px;
+	height: 506px;
+}
+#content_center ul li{
+	margin: 0 0 12px 0;
+}
+#content_center a{
+		font-size: 13px;
+}
+#content_center a:hover{
+	color: #2A8C70;
+	text-decoration:underline;
+}
+#content_center .author{
+	color: #999;
+	font-size: 13px
+}
+#content_center .page{
+	color: #999;
+	font-size: 14px;
+}
+#content_right{
+	width: 267px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+#content_right #guanggao01 img{
+	width: 267px;
+	position: relative;
+}
+#content_right #guanggao01 span{
+  width: 30px;
+ height: 15px;
+ background-color: rgba(0,0,0,0.2);
+ color: #fff;
+ font-weight: 600;
+ font-size: 14px;
+ position: absolute;
+ top: 118px;
+ right: 0px;
+}
+#content_right ul{
+	list-style: none;
+	margin-top: 20px;
+}
+#content_right ul li{
+	margin-bottom: 15px;
+	font-size: 14px;
+}
+#content_right  .new{
+	color: #4CC15F;
+	font-size: 13px;
+}
+#content_right .describe{
+	color: #999;
+	font-size: 13px;
+}
+#content_right .joinor{
+	margin-left: 6px;
+	color: #999;
+	font-size: 12px;
+}
+/*内容区域结束*/
+
+
+/*时间区域*/
+#timer{
+	width: 100%;
+	height: 615px;
+	background: #F7F7F7;
+}
+#timer_content{
+	width: 950px;
+	margin: 0 auto;
+	position: relative;
+}
+#timer_content #content_title{
+	font-size: 24px;	
+	margin-top: 39px;
+}
+#content_title a:hover{
+	text-decoration: none;
+}
+#timer_content #books{
+	width: 829px;
+	height: 495px;
+	position: absolute;
+	left: 122px;
+	top: 77px;
+}
+#books li {
+	width: 101px;
+	height: 214px;
+	float: left;
+	list-style: none;
+	margin-right: 60px;
+	margin-bottom: 31px;
+	position: relative;
+}
+#books li a{
+	display: inline-block;
+	width: 101px;
+	height: 214px;
+}
+#books li:nth-child(1){
+	background: url("../images/guozi.jpg") no-repeat;
+	background-size: 101px auto;/*设定背景图大小*/
+}
+#books li:nth-child(2){
+	background: url("../images/shiguang.png") no-repeat;
+	background-size: 101px auto;/*设定背景图大小,单独设定有效*/
+}
+#books li:nth-child(3){
+	background: url("../images/renxing.png") no-repeat;
+	background-size: 101px auto;/*设定背景图大小,单独设定有效*/
+}
+#books li:nth-child(4){
+	background: url("../images/honglou.png") no-repeat;
+	background-size: 101px auto;/*设定背景图大小,单独设定有效*/
+}
+#books li:nth-child(5){
+	background: url("../images/comeback.png") no-repeat;
+	background-size: 101px auto;/*设定背景图大小,单独设定有效*/
+}
+#books li:nth-child(6){
+	background: url("../images/wake.jpg") no-repeat;
+	background-size: 101px auto;/*设定背景图大小,单独设定有效*/
+}
+#books li:nth-child(7){
+	background: url("../images/pic.png") no-repeat;
+	background-size: 101px auto;/*设定背景图大小,单独设定有效*/
+}
+#books li:nth-child(8){
+	background: url("../images/ya.jpg") no-repeat;
+	background-size: 101px auto;/*设定背景图大小,单独设定有效*/
+}
+#books li:nth-child(9){
+	background: url("../images/y&t.jpg") no-repeat;
+	background-size: 101px auto;/*设定背景图大小,单独设定有效*/
+}
+#books li:nth-child(10){
+	background: url("../images/pear.png") no-repeat;
+	background-size: 101px auto;/*设定背景图大小,单独设定有效*/
+}
+#books li .title{
+  position: absolute;
+  top: 150px;
+  font-size: 13px;
+}
+#books li .type{
+	/*position: absolute;这里是多个元素公共属性，不适合用定位，定位针对单个元素好用*/
+	font-size: 10px;
+	color: #999;
+	margin-top: 200px;
+	text-align: center;
+}
+/*时间区域结束*/
+
+
+/*电影区*/
+#movie_area{
+	width: 100%;
+	height: 767px;
+}
+#movie_area #movies{
+	width: 950px;
+	margin: 0 auto;
+	width: 911px;
+	height: 597px;
+	margin-top: 38px;
+	position: relative;
+}
+#movie_left{
+	width: 122px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	left: 0px;
+}
+#movie_left #movies_title{
+	font-size: 24px;
+}
+#movie_left ul{
+   list-style: none;
+   margin-top: 20px;
+}
+#movie_left ul li{
+   margin-top: 15px;
+}
+#movie_left ul li span{
+	width: 17px;
+    color: #fff;
+	font-size: 9px;
+	background:#FF8066;
+}
+#left_down li{
+	display: block;
+	width: 55px;
+	height: 93px;	
+}
+#left_down  #down_pic{
+	display: inline-block;
+	box-shadow: 3px 3px 3px #999;/*阴影效果*/
+	border-radius: 8px;
+	height: 50px;
+	width: 50px;
+	margin-top: 25px;/*内容有个上边距*/
+	background: url("../images/app_icons.jpg") -350px 0px no-repeat;/*精灵技术*/
+}
+#left_down .title{
+	font-size: 13px;
+}
+#movie_left .type{
+	font-size: 14px;
+
+}
+#movie_center{
+	width: 564px;
+	height: 595px;
+	position: absolute;
+	top: 0px;
+	left: 123px;
+}
+#movie_center li{
+	list-style: none;
+	width: 132px;
+	height: 284px;
+	float: left;
+	text-align: center;
+}
+#movie_center li img{
+	width: 100px;
+	height: 145px;
+}
+#movie_center li .got
+{
+  	display: inline-block;
+	width: 56px;
+	height: 11px;
+}
+#movie_center li:nth-child(1) .got{
+	background: url("../images/ic_rating.png") 0px -22px no-repeat;
+}
+#movie_center li:nth-child(2) .got{
+	background: url("../images/ic_rating.png") 0px -33px no-repeat;
+}
+#movie_center li:nth-child(3) .got{
+	display: none;/*display的none属性可以不占用位置移除*/
+} 
+/*平均一个星星height  :11px*/
+#movie_center li:nth-child(4) .got{
+	background: url("../images/ic_rating.png") 0px -33px no-repeat;
+}
+#movie_center li:nth-child(5) .got{
+	background: url("../images/ic_rating.png") 0px -11px no-repeat;
+}
+#movie_center li:nth-child(6) .got{
+	background: url("../images/ic_rating.png") 0px -22px no-repeat;
+}
+#movie_center li:nth-child(7) .got{
+	background: url("../images/ic_rating.png") 0px -22px no-repeat;
+}
+#movie_center li:nth-child(8) .got{
+	background: url("../images/ic_rating.png") 0px -22px no-repeat;
+}
+#movie_center li span{
+	color: #FFAC2D;
+}
+li .title{
+	font-size: 15px;
+}
+#movie_center li a{
+	display: block;
+}
+#movie_center div{
+	padding-top: 9px;
+	padding-bottom: 5px;
+}
+#movie_center img{
+	padding-top: 9px;
+	padding-bottom: 5px;
+}
+#movie_right{
+	width: 220px;
+	height: 594px;
+	margin: 0px 0px auto auto;/*这里就能实现向右定位的解决，而不需要position*/
+}
+
+#kinds #kinds_type{
+	width: 220px;
+	height: 166px;
+	margin: 21px 0px 37px 0px;
+}
+#kinds #kinds_type li{
+  list-style: none;
+  font-size: 13px;
+  float: left;
+  width: 53px;
+  margin-bottom: 8px;
+}
+
+#hot_now #hot_list{
+	width: 220px;	
+	height: 325px;
+}
+#hot_list ul{
+  list-style: none;
+}
+#hot_list ul li{
+	border: 0px 0px 1px 0px;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+	padding-bottom: 9px;
+	padding-top: 6px;
+	font-size: 12px;
+}
+#hot_list ul span{
+	font-size: 13px;
+
+}
+#guanggao02 {
+     /*外面包裹的大盒子要设定宽度margin才有效*/
+	width: 913px;
+	height: 90px;
+	margin: 10px auto;
+}
+#guanggao02 img{
+	width: 913px;
+	height: 90px;
+	/*设置与外部盒子一样的宽高实现铺满*/
+}
+/*电影区结束*/
+
+
+

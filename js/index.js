@@ -1,0 +1,23 @@
+$(function(){
+	$("#fir_app").hover(function(){
+		$("#sec_app").css({
+			'display':'block',
+			'position':'absolute',
+			'left':'149px',
+			'top':'98px',
+			'z-index':'100'
+		})
+	},function(){
+		$("#sec_app").hide();
+	});
+	$("li>a:contains('选票购座')").css({
+		'font-size':'14px',
+		'color':'#fff',
+		'background':'#047FCB',
+		'width':'80px',
+		'height':'24px',
+		'line-height':'24px',/*行高和盒子高度一样也能达到垂直居中*/
+		'margin':'13px auto',/*margin的左右外边距为auto可以实现水平居中*/
+		'border-radius':'4px'
+	})
+})
